@@ -1,0 +1,41 @@
+<h1>Hola Amiguito</h1>
+
+<div class="play-container">
+    <p>Haz hecho click <span (click)="countClick()"> aquí &nbsp;</span> {{clickCounter}} veces. </p>
+</div>
+
+<div class="play-container">
+    <input type="text" [(ngModel)]="name"/>
+    <br>
+    <strong> Has dicho: </strong> {{name}}
+</div>
+
+<div class="play-container" [style.background-color]="clickCounter>4 ? 'yellow' : 'lightgray'">
+    <ng-template [ngIf]="clickCounter>4" [ngIfElse]="none">
+        <p>El contador es mayor a 4</p>
+    </ng-template>
+    <ng-template #none>
+        <p>El contador aun no llega a 4</p>
+    </ng-template>
+</div>
+
+<div class="play-container" [ngStyle]="{
+    'background-color': clickCounter > 4 ? '#98ee99' : '#aab6fe',
+    'border':           clickCounter > 4 ? '4px solid black' : 'none'
+}">
+    <ng-template [ngIf]="clickCounter>4" [ngIfElse]="none">
+        <p>El contador es mayor a 4</p>
+    </ng-template>
+    <ng-template #none>
+        <p>El contador aun no llega a 4</p>
+    </ng-template>
+</div>
+
+<div class="play-container" [class.active]="clickCounter > 4">
+    <ng-template [ngIf]="clickCounter>4" [ngIfElse]="none">
+        <p>El contador es mayor a 4</p>
+    </ng-template>
+    <ng-template #none>
+        <p>El contador aun no llega a 4</p>
+    </ng-template>
+</div>
